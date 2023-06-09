@@ -1,0 +1,49 @@
+@startuml
+title Word Quiz Program Sequence Diagram
+
+actor User
+
+User -> WordQuiz: 启动Word Quiz程序
+
+WordQuiz -> WordQuiz: 初始化程序界面
+
+User -> WordQuiz: 开始新的单词测验
+
+WordQuiz -> WordQuiz: 重置测验得分和计数
+
+WordQuiz -> WordQuiz: 开始测验计时器
+
+WordQuiz -> WordQuiz: 随机选择一个单词
+
+WordQuiz -> WordQuiz: 显示当前单词
+
+User -> WordQuiz: 在输入框中键入答案
+
+User -> WordQuiz: 点击答案检查按钮
+
+WordQuiz -> WordQuiz: 暂停单词计时器
+
+WordQuiz -> WordQuiz: 判断答案是否正确
+
+alt 答案正确
+    WordQuiz -> WordQuiz: 增加当前得分
+    WordQuiz -> WordQuiz: 显示更新后的得分
+else 答案错误
+    WordQuiz -> WordQuiz: 将单词加入待重复列表
+end
+
+WordQuiz -> WordQuiz: 进入下一个单词
+
+User -> WordQuiz: 点击进入下一个单词按钮
+
+WordQuiz -> WordQuiz: 进入下一个单词
+
+
+WordQuiz -> WordQuiz: 停止测验计时器和单词计时器
+
+WordQuiz -> User: 显示提示信息，询问是否重新开始
+
+User -> WordQuiz: 选择重新开始
+
+WordQuiz -> WordQuiz: 开始新的单词测验
+@enduml
